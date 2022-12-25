@@ -101,6 +101,7 @@ class SelectLocationFragment : BaseFragment() {
                 val zoomLevel = 15f
 
                 val homeLatLng = LatLng(latitude, longitude)
+                // add marker and cameria
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
                 map.addMarker(MarkerOptions().position(homeLatLng))
 
