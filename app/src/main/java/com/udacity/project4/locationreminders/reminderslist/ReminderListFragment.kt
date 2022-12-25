@@ -3,6 +3,7 @@ package com.udacity.project4.locationreminders.reminderslist
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.udacity.project4.R
 import com.udacity.project4.base.BaseFragment
 import com.udacity.project4.base.NavigationCommand
@@ -14,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ReminderListFragment : BaseFragment() {
     //use Koin to retrieve the ViewModel instance
+   val navController = findNavController()
     override val _viewModel: RemindersListViewModel by viewModel()
     private lateinit var binding: FragmentRemindersBinding
     override fun onCreateView(
@@ -71,7 +73,9 @@ class ReminderListFragment : BaseFragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
-//                TODO: add the logout implementation
+//                FINISH to  add the logout implementation
+
+                navController.navigate(R.id.logout)
             }
         }
         return super.onOptionsItemSelected(item)

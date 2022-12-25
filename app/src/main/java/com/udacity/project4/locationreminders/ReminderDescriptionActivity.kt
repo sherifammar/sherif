@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import com.udacity.project4.R
 import com.udacity.project4.databinding.ActivityReminderDescriptionBinding
 import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
+import com.udacity.project4.locationreminders.savereminder.SaveReminderViewModel
+import kotlinx.android.synthetic.main.fragment_save_reminder.*
 
 /**
  * Activity that displays the reminder details after the user clicks on the notification
@@ -32,6 +34,10 @@ class ReminderDescriptionActivity : AppCompatActivity() {
             this,
             R.layout.activity_reminder_description
         )
-//        TODO: Add the implementation of the reminder details
+//       FINISH Add the implementation of the reminder details AT 22/12/2022(9.30PM)
+
+        binding.reminderTitle.text = reminderTitle.toString()
+        binding.reminderDescription .text = reminderDescription.toString()
+        binding.selectedLocation.text= reminderSelectedLocationStr.tostring()
     }
 }

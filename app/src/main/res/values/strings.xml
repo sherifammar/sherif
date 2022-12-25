@@ -47,4 +47,6 @@
     <string name="login_btn" />
     <string name="logout_btn" />
     <string name="logout_button_text" />
+    <string name="special">special</string>
+    <string name="unknown_geofence_error" />
 </resources>

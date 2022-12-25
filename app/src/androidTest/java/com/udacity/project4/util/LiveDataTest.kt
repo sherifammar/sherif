@@ -7,6 +7,7 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
 
+// finish to check_loading testing functions.
 
 @VisibleForTesting(otherwise = VisibleForTesting.NONE)
 fun <T> LiveData<T>.getOrAwaitValue(
@@ -39,4 +40,6 @@ fun <T> LiveData<T>.getOrAwaitValue(
 
     @Suppress("UNCHECKED_CAST")
     return data as T
+
+
 }

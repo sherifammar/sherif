@@ -50,6 +50,7 @@ class AuthenticationActivity : AppCompatActivity() {
                     LoginViewModel.AuthenticationState.UNAUTHENTICATED
                     val authButton =findViewById<TextView>(R.id.authButton)
                     authButton.text = getString(R.string.login_button_text)
+                    // click on butto tranfer to reminderactivity
                     authButton.setOnClickListener{
 
                         var i =Intent(this,RemindersActivity::class.java)

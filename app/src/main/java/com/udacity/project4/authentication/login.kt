@@ -57,8 +57,7 @@ class LoginFragment : Fragment() {
             AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build()
         )
 
-        // Create and launch sign-in intent. We listen to the response of this activity with the
-        // SIGN_IN_RESULT_CODE code.
+
         startActivityForResult(
             AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(
                 providers

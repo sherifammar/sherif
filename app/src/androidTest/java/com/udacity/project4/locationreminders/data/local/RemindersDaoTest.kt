@@ -25,6 +25,39 @@ import org.junit.Test
 @SmallTest
 class RemindersDaoTest {
 
-//    TODO: Add testing implementation to the RemindersDao.kt
+//    finish to  Add testing implementation to the RemindersDao.kt
+    // using  Room.inMemoryDatabaseBuilder to create a Room DB instance at 24-12-2022/ 9 am .
+
+
+
+
+    private lateinit var database: ReminderDataSource
+    @get:Rule
+    var instantExecutorRule = InstantTaskExecutorRule()
+
+    @Before
+    fun initDb() {
+
+        database = Room.inMemoryDatabaseBuilder(
+            ApplicationProvider.getApplicationContext(),
+            ReminderDataSource::class.java
+        ).build()
+
+        @After
+        fun closeDb() = database.close()
+
+    }
+
+    @Test
+    fun insertTest() = runBlockingTest {
+        // GIVEN - Insert a task.
+        val test =ReminderDTO("title", "description","location",latitude=null, longitude = null)
+        database.RemindersDao.saveReminder(test)
+        
+
+
+
+    }
+
 
 }

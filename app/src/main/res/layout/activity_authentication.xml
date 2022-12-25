@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".authentication.AuthenticationActivity">
+    tools:context=".authentication.AuthenticationActivity"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,12 +18,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--finish to add button login-->
+    <!--finish and change to linear layoutto add button login at 22-12-2022(10pm)-->
     <Button
         android:id="@+id/authButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"/>
+        android:text="@string/login"
+        android:paddingTop="100dp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
