@@ -110,6 +110,8 @@ class SelectLocationFragment : BaseFragment() {
                 enableMyLocation()
 
 
+
+
             }
             private fun onLocationSelected(map: GoogleMap) {
                 //        FINISH TO When the user confirms on the selected location,
@@ -129,7 +131,7 @@ class SelectLocationFragment : BaseFragment() {
             override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
                 inflater.inflate(R.menu.map_options, menu)
             }
-
+// add setMapStyle(map) in onOptionsItemSelected of menu
             override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
 
                 //finish to Change the map type based on the user's selection.
