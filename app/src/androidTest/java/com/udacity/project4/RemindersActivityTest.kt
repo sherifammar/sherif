@@ -85,6 +85,7 @@ class RemindersActivityTest :
         repository.saveReminder( ReminderDTO("title1", "description1","location1",latitude=1.0, longitude = 1.0)
         )
 
+
         // Start up Tasks screen.
         val activityScenario = ActivityScenario.launch(RemindersActivity::class.java)
 
