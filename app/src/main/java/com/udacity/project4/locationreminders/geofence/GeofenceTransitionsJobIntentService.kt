@@ -1,6 +1,7 @@
 package com.udacity.project4.locationreminders.geofence
 
 import android.annotation.TargetApi
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
@@ -208,8 +209,12 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
             }
         }}
 
-
-
+/// add function description of an Intent and target action
+    private val geofencePendingIntent: PendingIntent by lazy {
+        val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
+        intent.action = ACTION_GEOFENCE_EVENT
+        PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+    }
 
 
 }
