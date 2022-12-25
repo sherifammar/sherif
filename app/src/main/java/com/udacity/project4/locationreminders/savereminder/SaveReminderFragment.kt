@@ -50,7 +50,8 @@ class SaveReminderFragment : BaseFragment() {
             val longitude = _viewModel.longitude.value
 
 //
-//           // finish to save the reminder to the local db at22-12-2022
+//
+// finish to save the reminder to the local db at22-12-2022
             _viewModel.validateAndSaveReminder(reminderData = ReminderDataItem(title,description,location,latitude,longitude))
         }
     }
