@@ -17,6 +17,7 @@
         android:orientation="vertical"
         tools:context=".locationreminders.ReminderDescriptionActivity">
         <!--finish to add the design of the reminder details at 22/12/2022 (9.15 pm)-->
+
         <TextView
             android:id="@+id/reminderTitle"
             android:layout_width="match_parent"
