@@ -172,6 +172,7 @@ class SelectLocationFragment : BaseFragment() {
             }
 
             // finish to add style by map styling wizard
+
             private fun setMapStyle(map: GoogleMap) {
                 try {
                     val success = map.setMapStyle(
@@ -193,6 +194,7 @@ class SelectLocationFragment : BaseFragment() {
                     this,
                     Manifest.permission.ACCESS_FINE_LOCATION) === PackageManager.PERMISSION_GRANTED
             }
+
             private fun enableMyLocation() {
                 if (isPermissionGranted()) {
                     map.setMyLocationEnabled(true)

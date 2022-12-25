@@ -54,7 +54,7 @@ class RemindersLocalRepositoryTest {
     }
 
     //    finish to  Add should returenerror
-    fun setReturnError(value: Boolean) {
+    fun shouldtReturnError(value: Boolean) {
         shouldReturnError = value
     }
 }

@@ -72,6 +72,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
                       Log.e(TAG, "Unknown Geofence: Abort Mission")
                        return
                     }
+
                     // add notification at 25-12-2022  7.15pm
                     sendNotification(context, ReminderDataItem)
 
@@ -144,6 +145,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
 }
 
 */
+
 // add class landmarkdataobject to save data
 data class LandmarkDataObject( val latLong: LatLng)
 
