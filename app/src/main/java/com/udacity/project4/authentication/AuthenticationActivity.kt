@@ -38,6 +38,7 @@ class AuthenticationActivity : AppCompatActivity() {
 
 
 
+
          fun observeAuthenticationState() {
 
             val authenticationState = AuthenticationActivity.FirebaseUserLiveData().map { user ->
