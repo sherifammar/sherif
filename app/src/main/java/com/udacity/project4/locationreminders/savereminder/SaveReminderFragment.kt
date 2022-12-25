@@ -29,6 +29,7 @@ class SaveReminderFragment : BaseFragment() {
 
         binding.viewModel = _viewModel
 
+
         return binding.root
     }
 
