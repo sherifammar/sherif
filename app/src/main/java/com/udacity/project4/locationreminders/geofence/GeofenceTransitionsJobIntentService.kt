@@ -211,6 +211,7 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
 
 /// add function description of an Intent and target action at 25/12/2022
 
+
     private val geofencePendingIntent: PendingIntent by lazy {
         val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
         intent.action = ACTION_GEOFENCE_EVENT
