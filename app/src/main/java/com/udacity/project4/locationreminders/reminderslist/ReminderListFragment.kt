@@ -75,6 +75,7 @@ class ReminderListFragment : BaseFragment() {
             R.id.logout -> {
 //                FINISH to  add the logout implementation
 
+
                 navController.navigate(R.id.logout)
             }
         }
