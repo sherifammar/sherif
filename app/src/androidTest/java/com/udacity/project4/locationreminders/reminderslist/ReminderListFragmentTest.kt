@@ -2,13 +2,17 @@ package com.udacity.project4.locationreminders.reminderslist
 
 import android.R
 import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.PerformException
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
@@ -19,6 +23,7 @@ import androidx.test.filters.MediumTest
 import com.google.android.gms.tasks.Task
 import com.udacity.project4.R
 import com.udacity.project4.locationreminders.data.local.RemindersLocalRepository
+import com.udacity.project4.locationreminders.savereminder.SaveReminderFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import net.bytebuddy.matcher.ElementMatchers.`is`
@@ -28,6 +33,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mockito
 import org.mockito.Mockito.mock
 import java.util.*
 import java.util.regex.Pattern.matches
@@ -56,6 +62,8 @@ class ReminderListFragmentTest {
 
         // finish to buttom of selection
         onView(withId(R.id.savelocation)).perform(click())
+        onView(withId(R.id.addReminderFAB)).perform(click())
+        onView(withId(R.id.selectLocation)).check(matches(withText("ReminderLocation")))
 
 // finish to check buttom
         onView(withId(R.id.addReminderFAB)).perform(click())
@@ -84,7 +92,12 @@ class ReminderListFragmentTest {
             .perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>(
                 hasDescendant(withText("TITLE1")), click()))
 
-// finish to using mokito
+        onView(withId(R.id.reminderTitle)).check(matches(withText("")))
+        onView(withId(R.id.reminderDescription)).check(matches(withText("")))
+        onView(withId(R.id.selectedLocation)).check(matches(withText("")))
+
+
+        // finish to using mokito
         @Test
         fun clickfloatingbutton() {
 
@@ -151,6 +164,70 @@ class ReminderListFragmentTest {
         onView(withId(R.id.geofence_too_many_pending_intents)).check(matches(isDisplayed()))
         onView(withId(R.id.error_adding_geofence)).check(matches(isDisplayed()))
     }
+    @Test
+    fun saveReminderFragment() {
 
+        val scenario = launchFragmentInContainer<SaveReminderFragment>(Bundle(), com.udacity.project4.R.style.AppTheme)
+        val navController = Mockito.mock(NavController::class.java)
+        scenario.onFragment {
+            Navigation.setViewNavController(it.view!!, navController)
+        }
+
+
+        Espresso.onView(ViewMatchers.withId(com.udacity.project4.R.id.saveReminder)).perform(
+            ViewActions.click())
+
+        Mockito.verify(navController).navigate(
+            SaveReminderFragmentDirection.action_saveReminderFragment_to_reminderListFragment(
+                null, ApplicationProvider.getApplicationContext<Context>()
+
+            )
+        )
+
+
+        Mockito.verify(navController).navigate(
+            SaveReminderFragmentDirection.action_saveReminderFragment_to_SelectLocationFragment(
+                null, ApplicationProvider.getApplicationContext<Context>()
+
+            )
+        )
+    }
+
+    @Test
+    fun completedTaskDetails_DisplayedInUi() = runBlockingTest{
+        // GIVEN - Add completed task to the DB
+        val completedTask = Task("Completed Task", "AndroidX Rocks", true)
+        repository. saveReminder(completedTask)
+
+// finish to check buttom
+        onView(withId(com.udacity.project4.R.id.addReminderFAB)).perform(click())
+        onView(withId(com.udacity.project4.R.id.saveReminder)).perform(click())
+// finish to check text view
+        onView(withId(com.udacity.project4.R.id.selectLocation))
+
+        //edittext
+        onView(withId(com.udacity.project4.R.id.reminderTitle)).perform(
+            ViewActions.clearText(),
+            ViewActions.typeText("")
+        )
+        onView(withId(com.udacity.project4.R.id.reminderDescription)).perform(
+            ViewActions.clearText(),
+            ViewActions.typeText("")
+        )
+
+        onView(withId(com.udacity.project4.R.id.selectLocation)).check(matches(withText("ReminderLocation")))
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
 
 }

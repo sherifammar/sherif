@@ -12,6 +12,7 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.google.android.gms.tasks.Task
@@ -26,6 +27,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
 import java.util.*
+import java.util.regex.Pattern.matches
 
 @RunWith(AndroidJUnit4::class)
 @ExperimentalCoroutinesApi
@@ -71,12 +73,15 @@ class Savefragmenttest {
 
 // finish to check buttom
     onView(withId(R.id.addReminderFAB)).perform(click())
+        onView(withId(R.id.saveReminder)).perform(click())
 // finish to check text view
     onView(withId(R.id.selectLocation))
 
         //edittext
         onView(withId(R.id.reminderTitle)).perform(clearText(), typeText(""))
         onView(withId(R.id.reminderDescription)).perform(clearText(), typeText(""))
+
+        onView(withId(R.id.selectLocation)).check(matches(withText("ReminderLocation")))
 
 
 
