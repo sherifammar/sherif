@@ -38,7 +38,7 @@ class SaveReminderViewModelTest {
         // When adding a new task
         saveViewModel.saveReminder()
 
-        // Then the new task event is triggered
+
         val value = saveViewModel. dataSource.saveReminder.awaitNextValue()
         ExpectFailure.assertThat(
             value?.getContentIfNotHandled(), (Validators.not(FixedValue.nullValue()))

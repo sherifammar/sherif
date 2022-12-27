@@ -21,6 +21,7 @@ class RemindersListViewModelTest {
 
     private lateinit var reminderViewModel: RemindersListViewModel
 
+
     // Executes each task synchronously using Architecture Components.
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
@@ -34,6 +35,7 @@ class RemindersListViewModelTest {
     fun loadReminders_show() {
 
         // When adding a new task
+
         reminderViewModel.loadReminders()
 
         // Then the new task event is triggered
