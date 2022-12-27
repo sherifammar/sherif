@@ -77,6 +77,7 @@ class RemindersActivityTest :
     }
 
 
+
 //  finish to add End to End testing to the app
 
     @Test
