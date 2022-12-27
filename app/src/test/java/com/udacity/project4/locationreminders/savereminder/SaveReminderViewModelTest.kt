@@ -35,7 +35,6 @@ class SaveReminderViewModelTest {
     @Test
     fun saveit() {
 
-        // When adding a new task
         saveViewModel.saveReminder()
 
 
