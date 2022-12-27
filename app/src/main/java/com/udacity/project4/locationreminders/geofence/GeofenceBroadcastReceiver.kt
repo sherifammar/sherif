@@ -147,6 +147,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
 */
 
 // add class landmarkdataobject to save data
+
 data class LandmarkDataObject( val latLong: LatLng)
 
  internal object GeofencingConstants {
