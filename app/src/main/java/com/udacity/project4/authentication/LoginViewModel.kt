@@ -27,6 +27,7 @@ import kotlin.random.Random
 class LoginViewModel : ViewModel() {
 
 
+
     enum class AuthenticationState {
         AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION
     }
