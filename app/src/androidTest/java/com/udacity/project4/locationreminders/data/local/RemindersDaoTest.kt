@@ -31,7 +31,6 @@ class RemindersDaoTest {
 
 
 
-
     private lateinit var database: ReminderDataSource
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
