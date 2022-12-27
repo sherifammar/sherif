@@ -156,6 +156,7 @@ class SelectLocationFragment : BaseFragment() {
                 }
                 //Users should have the option to change map type from the toolbar items.
 
+
                 R.id.special -> { setMapStyle(map) }
                 else -> super.onOptionsItemSelected(item)
             }
