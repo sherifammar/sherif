@@ -39,5 +39,6 @@ class ReminderDescriptionActivity : AppCompatActivity() {
         binding.reminderTitle.text = reminderTitle.toString()
         binding.reminderDescription .text = reminderDescription.toString()
         binding.selectedLocation.text= reminderSelectedLocationStr.tostring()
+
     }
 }
