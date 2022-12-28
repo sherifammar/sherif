@@ -41,6 +41,9 @@ class RemindersLocalRepositoryTest {
     // Class under test
 
     private lateinit var tasksRepository: RemindersLocalRepository
+    fun setReturnError(value: Boolean) {
+        shouldReturnError = value
+    }
 
     @Before
     fun createRepository() {
